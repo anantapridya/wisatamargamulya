@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import thumbnail from "../assets/foto_thumbnail.png";
+import thumbnail from "../assets/thumbnail.jpg";
 import template from "../assets/template1.svg";
 import templatekiri from "../assets/templatekiri.svg";
 import templatekanan from "../assets/templatekanan.svg";
