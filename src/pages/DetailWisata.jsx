@@ -1,30 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Carousel from "../components/Carousel";
-import MobileCarousel from "../components/MobileCarousel";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import Carousel from "../components/carousel/Carousel";
+import MobileCarousel from "../components/carousel/MobileCarousel";
 import data from "../data/data.json";
 import Card from "../components/card/Card";
 import megamendung from "../assets/megamendung.svg";
 import Map from "../components/Map";
-import Modal from "../components/Modal";
+import ModalCarousel from "../components/carousel/ModalCarousel";
 
 export default function DetailWisata() {
   const { path } = useParams();
   const navigate = useNavigate();
   const foundItem = data.find((item) => item.path === path);
-  console.log(foundItem);
+  // console.log(foundItem);
   window.scroll(0, 0);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    // width: 1000,
+    // bgcolor: "background.paper",
+    // border: "2px solid #000",
+    // boxShadow: 24,
+    // borderRadius: "24px"
+  };
   return (
     <div className="w-full ">
-      <Navbar home={false} />
+      <Navbar home={false} page={3} />
+
       {/* Modal */}
-      <div className="hidden" >
-        <Modal />
-      </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <div className="w-[1000px]">
+            {/* <p>GALLERY</p> */}
+            <ModalCarousel
+              content={foundItem.foto.map((item, key) => {
+                return (
+                  <div className="w-[1000px] flex justify-center items-center">
+                    <div className="flex justify-center w-full">
+                      {/* <div
+                          className="w-[800px] h-[500px] "
+                        > */}
+                      <img
+                        src={item}
+                        className="max-h-[500px] max-w-[800px] rounded-3xl"
+                      />
+                      {/* </div> */}
+                    </div>
+                  </div>
+                );
+              })}
+            />
+          </div>
+        </Box>
+      </Modal>
       {/* END of Modal */}
-      <div className="py-10 px-10 md:py-20 md:px-36 w-full">
+
+      <div className="py-10 px-10 md:py-20 md:px-20 xl:px-36 w-full">
         <div className="mt-5">
           <Link className="font-rubik text-2xl" onClick={() => navigate(-1)}>
             &lt; Back
@@ -43,49 +91,35 @@ export default function DetailWisata() {
           </p>
         </div>
         <p className="font-rubik text-2xl text-justify">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          {foundItem.deskripsi}
         </p>
+        {/* <Button onClick={handleOpen}>Open modal</Button> */}
         <div className="md:hidden">
           <MobileCarousel />
         </div>
-        <div className="w-full mt-9 grid grid-cols-3 grid-rows-2 h-[600px] gap-x-3 gap-y-3">
-          <div className="col-span-1 row-span-2 rounded-3xl bg-black">
-            {/* <Map position={[51.505, -0.09]} /> */}
-          </div>
+        <div className="w-full mt-9 hidden md:grid grid-cols-2 grid-rows-2 h-[600px] gap-x-3 gap-y-3">
+          {/* <div className="col-span-1 row-span-2 rounded-3xl bg-black">
+            <Map position={[51.505, -0.09]} />
+          </div> */}
           <div
-            className="col-span-2 bg-black rounded-3xl bg-cover bg-center"
+            className="col-span-2 bg-black rounded-3xl bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${foundItem.foto[0]})` }}
+            onClick={handleOpen}
           ></div>
           <div
-            className="bg-black rounded-3xl bg-cover bg-center"
+            className="bg-black rounded-3xl bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${foundItem.foto[1]})` }}
+            onClick={handleOpen}
           ></div>
           <div
-            className="bg-black rounded-3xl bg-cover bg-center"
+            className="bg-black rounded-3xl bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${foundItem.foto[2]})` }}
+            onClick={handleOpen}
           ></div>
         </div>
-        {/* <div className="hidden md:grid grid-cols-3 grid-rows-2 gap-x-3 gap-y-3 mt-5">
-          <div
-            className="bg-black w-full rounded-3xl h-[300px] col-span-2 bg-cover bg-center"
-            style={{ backgroundImage: `url(${foundItem.foto[0]})` }}
-          ></div>
-          <div
-            className="bg-black w-full rounded-3xl h-[300px] bg-cover bg-center"
-            style={{ backgroundImage: `url(${foundItem.foto[1]})` }}
-          ></div>
-          <div
-            className="bg-black w-full rounded-3xl h-[300px] bg-cover bg-center"
-            style={{ backgroundImage: `url(${foundItem.foto[2]})` }}
-          ></div>
-          <div
-            className="bg-black w-full rounded-3xl h-[300px] col-span-2 bg-cover bg-center"
-            style={{ backgroundImage: `url(${foundItem.foto[3]})` }}
-          ></div>
-        </div> */}
+        <div>
+          <p>bidbfusdfbusfmndbfdbfhjdfjdfvj</p>
+        </div>
       </div>
       <div
         className="mt-28 w-full p-10"
@@ -94,9 +128,11 @@ export default function DetailWisata() {
           background: "linear-gradient(180deg, #1EBEC0 0%, #249EA0 100%)",
         }}
       >
-        <p className="text-center text-white font-indo text-4xl font-bold mb-10">
-          Destinasi Lainnya
-        </p>
+        <div className="mb-10">
+          <p className="text-center text-white font-indo text-4xl font-bold ">
+            Destinasi Lainnya
+          </p>
+        </div>
         <div className="px-10 md:px-20">
           <Carousel
             content={data.map((item, key) => {

@@ -5,12 +5,13 @@ import templatekiri from "../assets/templatekiri.svg";
 import templatekanan from "../assets/templatekanan.svg";
 import megamendung from "../assets/megamendung.svg";
 import megamendung2 from "../assets/megamendung2.svg"
+import margamulya from "../assets/margamulya.svg"
 import data from "../data/data.json"
 
 import Navbar from "../components/Navbar";
 import { Element, Link } from "react-scroll";
 import Card from "../components/card/Card";
-import Carousel from "../components/Carousel";
+import Carousel from "../components/carousel/Carousel";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +23,7 @@ export default function Homepage() {
         className="w-full h-[100vh] bg-cover bg-center flex flex-col items-center justify-center relative bg-fixed"
         style={{ backgroundImage: `url(${thumbnail})` }}
       >
-        <Navbar />
+        <Navbar page={1} />
         <div className="flex flex-col items-center">
           <p className="font-rubik font-bold text-3xl sm:text-[40px] md:text-[75px] lg:text-[84px] text-white pl-[25px] md:pl-14">
             EXPLORE
@@ -62,7 +63,9 @@ export default function Homepage() {
                 background: "linear-gradient(180deg, #F9C828 0%, #F7971F 100%)",
               }}
             >
-              <div className="aspect-square w-[200px] md:w-[400px] bg-blue-600 rounded-3xl"></div>
+              <div className="aspect-square w-[200px] md:w-[400px] flex items-center rounded-3xl">
+                <img src={margamulya} alt="margamulya" />
+              </div>
               <div>
                 <p className="font-indo text-[40px] text-center xl:text-left md:text-[82px] text-white">Margamulya</p>
                 <p className="font-rubik text-white text-justify text-base md:text-lg">

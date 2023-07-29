@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Card from "./card/Card";
-import data from "../data/data.json";
+import Card from "../card/Card";
+import data from "../../data/data.json";
 import { useNavigate } from "react-router-dom";
 
 export default function Carousel(props) {

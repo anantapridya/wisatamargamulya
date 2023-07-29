@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar(props) {
   const navigate = useNavigate()
 
-  const [select, setSelect] = useState(1);
+  const [select, setSelect] = useState(props.page);
   const [ScrollOpacity, setOpacity] = useState(0);
   const [click, setClick] = useState(false);
   const [home, setHome] = useState(props.home)
@@ -23,6 +23,10 @@ export default function Navbar(props) {
       setOpacity(opacity);
     }
   };
+  const handleSelect = (select, link) => {
+    setSelect(select)
+    navigate(link)
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -52,34 +56,34 @@ export default function Navbar(props) {
             className={`font-rubik font-semibold text-base border border-black rounded-full px-5 py-1 cursor-pointer ${
               select === 1 ? "text-white bg-black" : "text-black"
             }`}
-            onClick={() => setSelect(1)}
+            onClick={() => handleSelect(1, "/")}
           >
             BERANDA
           </p>
-          <p
+          {/* <p
             className={`font-rubik font-semibold text-base border border-black rounded-full px-5 py-1 cursor-pointer ${
               select === 2 ? "text-white bg-black" : "text-black"
             }`}
             onClick={() => setSelect(2)}
           >
             PROFIL DESA
-          </p>
+          </p> */}
           <p
             className={`font-rubik font-semibold text-base border border-black rounded-full px-5 py-1 cursor-pointer ${
               select === 3 ? "text-white bg-black" : "text-black"
             }`}
-            onClick={() => setSelect(3)}
+            onClick={() => handleSelect(3, "/daftar/wisata")}
           >
             DESTINASI WISATA
           </p>
-          <p
+          {/* <p
             className={`font-rubik font-semibold text-base border border-black rounded-full px-5 py-1 cursor-pointer ${
               select === 4 ? "text-white bg-black" : "text-black"
             }`}
             onClick={() => setSelect(4)}
           >
             UMKM
-          </p>
+          </p> */}
         </div>
       </div>
       <div
@@ -91,34 +95,34 @@ export default function Navbar(props) {
           className={`font-rubik font-semibold text-sm w-full text-center py-4 ${
             select === 1 ? "text-white bg-black" : "text-black"
           }`}
-          onClick={() => setSelect(1)}
+          onClick={() => handleSelect(1, '/')}
         >
           BERANDA
         </p>
-        <p
+        {/* <p
           className={`font-rubik font-semibold text-sm w-full text-center py-4 ${
             select === 2 ? "text-white bg-black" : "text-black"
           }`}
           onClick={() => setSelect(2)}
         >
           PROFIL DESA
-        </p>
+        </p> */}
         <p
           className={`font-rubik font-semibold text-sm w-full text-center py-4 ${
             select === 3 ? "text-white bg-black" : "text-black"
           }`}
-          onClick={() => setSelect(3)}
+          onClick={() => handleSelect(3, "/daftar/wisata")}
         >
           DESTINASI WISATA
         </p>
-        <p
+        {/* <p
           className={`font-rubik font-semibold text-sm w-full text-center py-4 ${
             select === 4 ? "text-white bg-black" : "text-black"
           }`}
           onClick={() => setSelect(4)}
         >
           UMKM
-        </p>
+        </p> */}
       </div>
     </div>
   );
