@@ -36,11 +36,11 @@ export default function Homepage() {
           </p>
         </div>
         <div
-          className="absolute w-full bottom-0 h-[175px] bg-cover bg-center flex items-center justify-center "
+          className="absolute w-full bottom-[-10px] h-[175px] bg-cover bg-center flex items-center justify-center "
           style={{ backgroundImage: `url(${template})` }}
         >
           <Link to="main" smooth={true} duration={1000}>
-            <div className="aspect-square w-16 cursor-pointer "></div>
+            <div className="aspect-square w-20 cursor-pointer "></div>
           </Link>
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function Homepage() {
       {/* Shadoww */}
 
       <Element name="main">
-        <div className="md:h-[100vh] w-full py-20 px-11">
+        <div className="md:h-[100vh] w-full py-20 px-11 mt-[-10px]">
           <div className="flex flex-col h-full items-center relative justify-center gap-y-11">
             <img
               src={templatekiri}

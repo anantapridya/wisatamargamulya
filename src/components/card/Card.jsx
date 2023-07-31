@@ -11,7 +11,7 @@ export default function Card(props) {
       >
         <div className="w-full h-full bg-black bg-opacity-30 rounded-3xl md:rounded-[40px]">
           <div
-            className="w-full h-full rounded-[40px] flex justify-center items-end pb-3 px-2 card"
+            className="w-full h-full rounded-3xl md:rounded-[40px] flex justify-center items-end pb-3 px-2 card"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >
