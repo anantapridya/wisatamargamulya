@@ -70,7 +70,7 @@ export default function DetailWisata() {
 
       <div className="py-20 px-10 md:py-20 md:px-20 xl:px-36 w-full">
         <div className="mt-5">
-          <Link className="font-rubik text-2xl" onClick={() => navigate(-1)}>
+          <Link className="font-rubik text-lg md:text-2xl" onClick={() => navigate(-1)}>
             &lt; Back
           </Link>
         </div>
@@ -79,14 +79,14 @@ export default function DetailWisata() {
             src={megamendung}
             className="absolute -z-10 opacity-[0.05] ml-[-80px] mt-6"
           />
-          <p className="font-semibold text-[#249EA0] max-w-[700px] leading-[60px] font-rubik text-[60px]">
+          <p className="font-semibold text-[#249EA0] max-w-[700px] leading-9 md:leading-[60px] font-rubik text-[40px] md:text-[60px]">
             {foundItem.nama}
           </p>
-          <p className="text-left w-full font-rubik text-3xl text-[#B3B3B3] mt-5">
+          {/* <p className="text-left w-full font-rubik text-3xl text-[#B3B3B3] mt-5">
             Wisata Alam
-          </p>
+          </p> */}
         </div>
-        <p className="font-rubik text-2xl text-justify">
+        <p className="font-rubik text-lg md:text-2xl text-justify">
           {foundItem.deskripsi}
         </p>
         {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -124,20 +124,20 @@ export default function DetailWisata() {
           ></div>
         </div>
         <div className="">
-          <p className="font-rubik text-2xl text-justify">
+          <p className="font-rubik text-lg md:text-2xl text-justify">
             {foundItem.fasilitas}
           </p>
         </div>
       </div>
       <div
-        className="mt-28 w-full p-10"
+        className="mt-10 md:mt-28 w-full p-10"
         style={{
           borderRadius: "50px 50px 0px 0px",
           background: "linear-gradient(180deg, #1EBEC0 0%, #249EA0 100%)",
         }}
       >
         <div className="mb-10">
-          <p className="text-center text-white font-indo text-4xl font-bold ">
+          <p className="text-center text-white font-indo text-3xl md:text-4xl font-bold ">
             Destinasi Lainnya
           </p>
         </div>
