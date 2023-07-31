@@ -18,7 +18,6 @@ export default function DetailWisata() {
   const { path } = useParams();
   const navigate = useNavigate();
   const foundItem = data.find((item) => item.path === path);
-  // console.log(foundItem);
   window.scroll(0, 0);
 
   const [open, setOpen] = useState(false);
@@ -29,15 +28,12 @@ export default function DetailWisata() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    // width: 1000,
-    // bgcolor: "background.paper",
-    // border: "2px solid #000",
-    // boxShadow: 24,
-    // borderRadius: "24px"
   };
   return (
     <div className="w-full ">
-      <Navbar home={false} page={3} />
+      <div>
+        <Navbar home={false} page={3} />
+      </div>
 
       {/* Modal */}
       <Modal
@@ -72,7 +68,7 @@ export default function DetailWisata() {
       </Modal>
       {/* END of Modal */}
 
-      <div className="py-10 px-10 md:py-20 md:px-20 xl:px-36 w-full">
+      <div className="py-20 px-10 md:py-20 md:px-20 xl:px-36 w-full">
         <div className="mt-5">
           <Link className="font-rubik text-2xl" onClick={() => navigate(-1)}>
             &lt; Back
@@ -94,10 +90,20 @@ export default function DetailWisata() {
           {foundItem.deskripsi}
         </p>
         {/* <Button onClick={handleOpen}>Open modal</Button> */}
-        <div className="md:hidden">
-          <MobileCarousel />
+        <div className="md:hidden my-5">
+          <MobileCarousel
+            content={foundItem.foto.map((item, key) => {
+              return (
+                <div className="w-full">
+                  <div className="flex justify-center items-center">
+                    <img src={item} className="max-h-[180px]" />
+                  </div>
+                </div>
+              );
+            })}
+          />
         </div>
-        <div className="w-full mt-9 hidden md:grid grid-cols-2 grid-rows-2 h-[600px] gap-x-3 gap-y-3">
+        <div className="w-full my-9 hidden md:grid grid-cols-2 grid-rows-2 h-[800px] gap-x-3 gap-y-3">
           {/* <div className="col-span-1 row-span-2 rounded-3xl bg-black">
             <Map position={[51.505, -0.09]} />
           </div> */}
@@ -117,8 +123,10 @@ export default function DetailWisata() {
             onClick={handleOpen}
           ></div>
         </div>
-        <div>
-          <p>bidbfusdfbusfmndbfdbfhjdfjdfvj</p>
+        <div className="">
+          <p className="font-rubik text-2xl text-justify">
+            {foundItem.fasilitas}
+          </p>
         </div>
       </div>
       <div

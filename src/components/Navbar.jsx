@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar(props) {
   const navigate = useNavigate()
 
+  const bg = props.bg || "bg-white"
   const [select, setSelect] = useState(props.page);
   const [ScrollOpacity, setOpacity] = useState(0);
   const [click, setClick] = useState(false);
@@ -37,7 +38,7 @@ export default function Navbar(props) {
   }, []);
   return (
     <div className="relative z-50">
-      <div className="fixed h-20 w-full justify-between bg-white flex items-center md:hidden px-11 top-0 z-50 left-0 pt-3">
+      <div className={`fixed h-20 w-full justify-between ${bg} flex items-center md:hidden px-11 top-0 z-50 left-0 pt-3`}>
         <img src={logomargamulya} className="w-11 cursor-pointer" onClick={() => navigate('/')} />
         <img
           src={hamburger}
@@ -46,7 +47,7 @@ export default function Navbar(props) {
         />
       </div>
       <div
-        className="fixed h-20 w-full justify-between items-center hidden md:flex px-11 top-0 z-50 left-0"
+        className={`fixed h-20 w-full justify-between items-center hidden md:flex px-11 top-0 z-50 left-0 bg-[#249EA0]`}
         style={{ backgroundColor: `rgba(255, 255, 255, ${ScrollOpacity})` }}
       >
         <img src={logomargamulya} className="w-11 cursor-pointer" onClick={() => navigate('/')} />

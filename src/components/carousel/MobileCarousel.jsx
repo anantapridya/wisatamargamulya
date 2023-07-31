@@ -11,22 +11,22 @@ export default function Carousel(props) {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    autoplay: true,
-    arrows: false,
-    centerMode: true
+    slidesToScroll: 1,
+    adaptiveHeight: true,
   };
 
   return (
     <div>
       <Slider {...settings}>
-        {data.map((item, key) => {
+        {props.content}
+        {/* {data.map((item, key) => {
           return (
             <div key={key} className="w-full h-full">
               <img src={item.foto[0]} className="w-full h-full" />
-              {/* <Card bg={item.thumbnail} nama={item.nama} /> */}
+              <Card bg={item.thumbnail} nama={item.nama} />
             </div>
-          );
-        })}
+          )
+        })} */}
       </Slider>
     </div>
   );
