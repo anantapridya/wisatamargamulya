@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import thumbnail from "../assets/thumbnail.jpg";
 import template from "../assets/template1.svg";
 import templatekiri from "../assets/templatekiri.svg";
@@ -53,6 +53,7 @@ export default function Homepage() {
             <img
               src={templatekiri}
               className=" md:absolute hidden md:inline left-[100px] bottom-[-400px] -z-10"
+              alt="templpate"
             />
             <p className="font-rubik font-semibold text-3xl md:text-5xl text-center text-oren">
               MENGENAL LEBIH DEKAT
@@ -69,19 +70,14 @@ export default function Homepage() {
               <div>
                 <p className="font-indo text-[40px] text-center xl:text-left md:text-[82px] text-white">Margamulya</p>
                 <p className="font-rubik text-white text-justify text-base md:text-lg">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
+                  Margamulya merupakan sebuah desa yang terletak di Kecamatan Pangalengan, Kabupaten Bandung, Jawa Barat. Desa ini memiliki luas wilayah 1.294,14 Ha dengan total penduduk 18 ribu jiwa.
                 </p>
               </div>
             </div>
             <img
               src={templatekanan}
               className="absolute hidden md:inline right-[100px] bottom-[-400px] -z-10"
+              alt="template"
             />
           </div>
         </div>
@@ -96,6 +92,7 @@ export default function Homepage() {
             <img
               className="absolute aspect-auto w-28 md:w-auto opacity-10 mt-[-10px] ml-[-40px] md:mt-[-50px] md:ml-[-100px]"
               src={megamendung}
+              alt="megamendung"
             />
             <div className="flex flex-col xl:flex-row gap-x-[76px] gap-y-5 z-10">
               <div className="">
@@ -131,6 +128,7 @@ export default function Homepage() {
             <img
               className="absolute w-28 md:w-auto opacity-10 bottom-0 right-0 mr-8 mb-5 md:mr-24 md:mb-14"
               src={megamendung2}
+              alt="megamendung"
             />
           </div>
         </div>

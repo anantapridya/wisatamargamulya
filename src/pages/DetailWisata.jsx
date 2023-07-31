@@ -3,15 +3,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Carousel from "../components/carousel/Carousel";
 import MobileCarousel from "../components/carousel/MobileCarousel";
 import data from "../data/data.json";
 import Card from "../components/card/Card";
 import megamendung from "../assets/megamendung.svg";
-import Map from "../components/Map";
 import ModalCarousel from "../components/carousel/ModalCarousel";
 
 export default function DetailWisata() {
@@ -56,6 +53,7 @@ export default function DetailWisata() {
                       <img
                         src={item}
                         className="max-h-[500px] max-w-[800px] rounded-3xl"
+                        alt={item}
                       />
                       {/* </div> */}
                     </div>
@@ -78,6 +76,7 @@ export default function DetailWisata() {
           <img
             src={megamendung}
             className="absolute -z-10 opacity-[0.05] ml-[-80px] mt-6"
+            alt="megamendung"
           />
           <p className="font-semibold text-[#249EA0] max-w-[700px] leading-9 md:leading-[60px] font-rubik text-[40px] md:text-[60px]">
             {foundItem.nama}
@@ -96,7 +95,7 @@ export default function DetailWisata() {
               return (
                 <div className="w-full">
                   <div className="flex justify-center items-center">
-                    <img src={item} className="max-h-[180px]" />
+                    <img src={item} className="max-h-[180px]" alt="megamendung"/>
                   </div>
                 </div>
               );
@@ -104,9 +103,6 @@ export default function DetailWisata() {
           />
         </div>
         <div className="w-full my-9 hidden md:grid grid-cols-2 grid-rows-2 h-[800px] gap-x-3 gap-y-3">
-          {/* <div className="col-span-1 row-span-2 rounded-3xl bg-black">
-            <Map position={[51.505, -0.09]} />
-          </div> */}
           <div
             className="col-span-2 bg-black rounded-3xl bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${foundItem.foto[0]})` }}

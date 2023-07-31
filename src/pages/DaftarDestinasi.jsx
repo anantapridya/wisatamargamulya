@@ -38,7 +38,7 @@ export default function DaftarDestinasi() {
             })}
           </div>
           {/* <div className="w-full fixed flex justify-end"> */}
-          <img src={bg} className="fixed hidden md:inline opacity-20 top-[-40px] right-40" />
+          <img src={bg} className="fixed hidden md:inline opacity-20 top-[-40px] right-40" alt="template"/>
           {/* </div> */}
         </div>
       </div>

@@ -13,12 +13,12 @@ export default function Footer() {
         <div className="flex my-3 gap-x-3 md:gap-x-5">
           <div>
             <a href="https://margamulya-pangalengan.desa.id/" target="_blank">
-              <img src={website} className="w-5 md:w-7" />
+              <img src={website} className="w-5 md:w-7" alt="website" rel="noopener" />
             </a>
           </div>
           <div>
             <a href="https://www.instagram.com/dmargamulya_/" target="_blank">
-              <img src={instagram} className="w-5 md:w-7"/>
+              <img src={instagram} className="w-5 md:w-7" alt="instagram" rel="noopener"/>
             </a>
           </div>
           <div>
@@ -26,7 +26,7 @@ export default function Footer() {
               href="https://api.whatsapp.com/send?phone=6285860460438"
               target="_blank"
             >
-              <img src={whatsapp} className="w-5 md:w-7"/>
+              <img src={whatsapp} className="w-5 md:w-7" alt="whatsapp" rel="noopener"/>
             </a>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function Footer() {
       </div>
       <div className="bg-[#249EA0] py-2">
         <p className="w-full text-center text-[10px] md:text-sm font-rubik text-white">
-          Developed by Tim KKN-PPM UGM - Kisah Panorama 2023
+          Developed by Tim KKN-PPM UGM - <span><a href="https://www.instagram.com/kisahpanorama/" target="_blank" rel="noopener">Kisah Panorama 2023</a></span>
         </p>
       </div>
     </div>
