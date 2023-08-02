@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -10,6 +10,8 @@ import data from "../data/data.json";
 import Card from "../components/card/Card";
 import megamendung from "../assets/megamendung.svg";
 import ModalCarousel from "../components/carousel/ModalCarousel";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function DetailWisata() {
   const { path } = useParams();
@@ -26,6 +28,14 @@ export default function DetailWisata() {
     left: "50%",
     transform: "translate(-50%, -50%)",
   };
+  AOS.refresh();
+
+  useEffect(() => {
+    AOS.init({
+      once: false,
+      duration: 1500,
+    });
+  }, []);
   return (
     <div className="w-full ">
       <div>
@@ -68,7 +78,10 @@ export default function DetailWisata() {
 
       <div className="py-20 px-10 md:py-20 md:px-20 xl:px-36 w-full">
         <div className="mt-5">
-          <Link className="font-rubik text-lg md:text-2xl" onClick={() => navigate(-1)}>
+          <Link
+            className="font-rubik text-lg md:text-2xl"
+            onClick={() => navigate(-1)}
+          >
             &lt; Back
           </Link>
         </div>
@@ -78,14 +91,20 @@ export default function DetailWisata() {
             className="absolute -z-10 opacity-[0.05] ml-[-80px] mt-6"
             alt="megamendung"
           />
-          <p className="font-semibold text-[#249EA0] max-w-[700px] leading-9 md:leading-[60px] font-rubik text-[40px] md:text-[60px]">
+          <p
+            className="font-semibold text-[#249EA0] max-w-[700px] leading-9 md:leading-[60px] font-rubik text-[40px] md:text-[60px]"
+            data-aos="fade-left"
+          >
             {foundItem.nama}
           </p>
           {/* <p className="text-left w-full font-rubik text-3xl text-[#B3B3B3] mt-5">
             Wisata Alam
           </p> */}
         </div>
-        <p className="font-rubik text-lg md:text-2xl text-justify">
+        <p
+          className="font-rubik text-lg md:text-2xl text-justify"
+          data-aos="zoom-in"
+        >
           {foundItem.deskripsi}
         </p>
         {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -95,7 +114,11 @@ export default function DetailWisata() {
               return (
                 <div className="w-full">
                   <div className="flex justify-center items-center">
-                    <img src={item} className="max-h-[180px]" alt="megamendung"/>
+                    <img
+                      src={item}
+                      className="max-h-[180px]"
+                      alt="megamendung"
+                    />
                   </div>
                 </div>
               );
@@ -107,20 +130,23 @@ export default function DetailWisata() {
             className="col-span-2 bg-black rounded-3xl bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${foundItem.foto[0]})` }}
             onClick={handleOpen}
+            data-aos="fade-down"
           ></div>
           <div
             className="bg-black rounded-3xl bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${foundItem.foto[1]})` }}
             onClick={handleOpen}
+            data-aos="fade-right"
           ></div>
           <div
             className="bg-black rounded-3xl bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${foundItem.foto[2]})` }}
             onClick={handleOpen}
+            data-aos="fade-left"
           ></div>
         </div>
         <div className="">
-          <p className="font-rubik text-lg md:text-2xl text-justify">
+          <p className="font-rubik text-lg md:text-2xl text-justify" data-aos="zoom-in">
             {foundItem.fasilitas}
           </p>
         </div>
@@ -133,11 +159,11 @@ export default function DetailWisata() {
         }}
       >
         <div className="mb-10">
-          <p className="text-center text-white font-indo text-3xl md:text-4xl font-bold ">
+          <p className="text-center text-white font-indo text-3xl md:text-4xl font-bold " data-aos="zoom-in">
             Destinasi Lainnya
           </p>
         </div>
-        <div className="px-10 md:px-20">
+        <div className="px-10 md:px-20" data-aos="fade-up">
           <Carousel
             content={data.map((item, key) => {
               if (foundItem.id !== item.id) {

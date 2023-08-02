@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import thumbnail from "../assets/thumbnail.jpg";
 import template from "../assets/template1.svg";
 import templatekiri from "../assets/templatekiri.svg";
 import templatekanan from "../assets/templatekanan.svg";
 import megamendung from "../assets/megamendung.svg";
-import megamendung2 from "../assets/megamendung2.svg"
-import margamulya from "../assets/margamulya.svg"
-import data from "../data/data.json"
+import megamendung2 from "../assets/megamendung2.svg";
+import margamulya from "../assets/margamulya.svg";
+import data from "../data/data.json";
 
 import Navbar from "../components/Navbar";
 import { Element, Link } from "react-scroll";
@@ -14,9 +14,19 @@ import Card from "../components/card/Card";
 import Carousel from "../components/carousel/Carousel";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Homepage() {
-  const navigate = useNavigate()
+  window.scroll(0, 0);
+  useEffect(() => {
+    AOS.init({
+      once: false,
+      duration: 1500,
+    });
+    AOS.refresh();
+  }, []);
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -25,13 +35,22 @@ export default function Homepage() {
       >
         <Navbar page={1} />
         <div className="flex flex-col items-center">
-          <p className="font-rubik font-bold text-3xl sm:text-[40px] md:text-[75px] lg:text-[84px] text-white pl-[25px] md:pl-14">
+          <p
+            className="font-rubik font-bold text-3xl sm:text-[40px] md:text-[75px] lg:text-[84px] text-white pl-[25px] md:pl-14"
+            data-aos="fade-up"
+          >
             EXPLORE
           </p>
-          <p className="font-indo font-normal text-[50px] sm:text-[114px] md:text-[130px] lg:text-[160px] text-oren mt-[-15px] md:mt-[-30px]">
+          <p
+            className="font-indo font-normal text-[50px] sm:text-[114px] md:text-[130px] lg:text-[160px] text-oren mt-[-15px] md:mt-[-30px]"
+            data-aos="fade-up"
+          >
             Margamulya
           </p>
-          <p className="font-rubik md:text-2xl text-center font-medium text-white bg-gray-100 mx-6 backdrop-blur-sm bg-opacity-20 px-4 md:px-11 py-2 rounded-3xl md:mt-[-20px]">
+          <p
+            className="font-rubik md:text-2xl text-center font-medium text-white bg-gray-100 mx-6 backdrop-blur-sm bg-opacity-20 px-4 md:px-11 py-2 rounded-3xl md:mt-[-20px]"
+            data-aos="zoom-in"
+          >
             Kecamatan Pangalengan, Bandung Selatan
           </p>
         </div>
@@ -55,7 +74,10 @@ export default function Homepage() {
               className=" md:absolute hidden md:inline left-[100px] bottom-[-400px] -z-10"
               alt="templpate"
             />
-            <p className="font-rubik font-semibold text-3xl md:text-5xl text-center text-oren">
+            <p
+              className="font-rubik font-semibold text-3xl md:text-5xl text-center text-oren"
+              data-aos="fade-up"
+            >
               MENGENAL LEBIH DEKAT
             </p>
             <div
@@ -65,12 +87,22 @@ export default function Homepage() {
               }}
             >
               <div className="aspect-square w-[200px] md:w-[400px] flex items-center rounded-3xl">
-                <img src={margamulya} alt="margamulya" />
+                <img src={margamulya} alt="margamulya" data-aos="fade-right" />
               </div>
               <div>
-                <p className="font-indo text-[40px] text-center xl:text-left md:text-[82px] text-white">Margamulya</p>
-                <p className="font-rubik text-white text-justify text-base md:text-lg">
-                  Margamulya merupakan sebuah desa yang terletak di Kecamatan Pangalengan, Kabupaten Bandung, Jawa Barat. Desa ini memiliki luas wilayah 1.294,14 Ha dengan total penduduk 18 ribu jiwa.
+                <p
+                  className="font-indo text-[40px] text-center xl:text-left md:text-[82px] text-white"
+                  data-aos="zoom-in"
+                >
+                  Margamulya
+                </p>
+                <p
+                  className="font-rubik text-white text-justify text-base md:text-lg"
+                  data-aos="zoom-in"
+                >
+                  Margamulya merupakan sebuah desa yang terletak di Kecamatan
+                  Pangalengan, Kabupaten Bandung, Jawa Barat. Desa ini memiliki
+                  luas wilayah 1.294,14 Ha dengan total penduduk 18 ribu jiwa.
                 </p>
               </div>
             </div>
@@ -85,7 +117,7 @@ export default function Homepage() {
           <div
             className="py-10 px-14 md:py-24 md:px-40 flex flex-col gap-y-14 mt-[150px] relative"
             style={{
-              "borderRadius": "50px 50px 0px 0px",
+              borderRadius: "50px 50px 0px 0px",
               background: "linear-gradient(180deg, #1EBEC0 0%, #249EA0 100%)",
             }}
           >
@@ -95,7 +127,7 @@ export default function Homepage() {
               alt="megamendung"
             />
             <div className="flex flex-col xl:flex-row gap-x-[76px] gap-y-5 z-10">
-              <div className="">
+              <div className="" data-aos="fade-right">
                 <p className="font-rubik font-semibold text-2xl md:text-5xl text-white mb-2">
                   DESTINASI
                 </p>
@@ -104,7 +136,10 @@ export default function Homepage() {
                 </p>
               </div>
               <div>
-                <p className="font-rubik text-sm md:text-base text-white text-justify">
+                <p
+                  className="font-rubik text-sm md:text-base text-white text-justify"
+                  data-aos="zoom-in"
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
@@ -118,12 +153,18 @@ export default function Homepage() {
                 </p>
               </div>
             </div>
-            <div className="z-10">
-              <Carousel content={data.map((item, key) => {
-                return(
-                  <Card bg={item.thumbnail} nama={item.nama} onClick={() => navigate(`/wisata/${item.path}`)} />
-                )
-              })} />
+            <div className="z-10" data-aos="fade-up">
+              <Carousel
+                content={data.map((item, key) => {
+                  return (
+                    <Card
+                      bg={item.thumbnail}
+                      nama={item.nama}
+                      onClick={() => navigate(`/wisata/${item.path}`)}
+                    />
+                  );
+                })}
+              />
             </div>
             <img
               className="absolute w-28 md:w-auto opacity-10 bottom-0 right-0 mr-8 mb-5 md:mr-24 md:mb-14"
