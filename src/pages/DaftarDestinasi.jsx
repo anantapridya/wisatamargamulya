@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import DaftarDestinasiCard from "../components/card/DaftarDestinasiCard";
 
@@ -6,10 +6,21 @@ import bg from "../assets/templatekanan.svg";
 import data from "../data/data.json";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function DaftarDestinasi() {
   const navigate = useNavigate();
   window.scroll(0,0)
+
+  AOS.refresh();
+
+  useEffect(() => {
+    AOS.init({
+      once: false,
+      duration: 1500,
+    });
+  }, []);
   
   return (
     <div>
@@ -33,6 +44,7 @@ export default function DaftarDestinasi() {
                   bg={item.thumbnail}
                   nama={item.nama}
                   onClick={() => navigate(`/wisata/${item.path}`)}
+                  data-aos="zoom-in"
                 />
               );
             })}
